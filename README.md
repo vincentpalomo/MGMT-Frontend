@@ -6,11 +6,14 @@ Welcome to the frontend repository of MGMT! This repository contains the code fo
 
 MGMT is an app designed to streamline your job application process. Whether you're actively job hunting or simply keeping track of potential opportunities, MGMT offers a robust set of features to help you stay organized.
 
+![Alt Text](./images/mgmt-main.PNG)
+
 ## Technologies Used
 
 - [Next.js](https://nextjs.org/)
 - [Tailwind CSS](https://tailwindcss.com/)
 - [Vercel](https://vercel.com/) (for hosting)
+- [figma](https://figma.com/) (design/prototype)
 
 ## Getting Started
 
