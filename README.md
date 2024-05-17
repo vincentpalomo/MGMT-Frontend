@@ -6,7 +6,7 @@ Welcome to the frontend repository of MGMT! This repository contains the code fo
 
 MGMT is an app designed to streamline your job application process. Whether you're actively job hunting or simply keeping track of potential opportunities, MGMT offers a robust set of features to help you stay organized.
 
-- [prototype] (https://www.figma.com/design/6D8qRIGXPF8AuDe2Y2HEEi/MGMT?node-id=8%3A32&t=xmv2E7uoP5QQefW3-1)
+- [prototype](https://www.figma.com/design/6D8qRIGXPF8AuDe2Y2HEEi/MGMT?node-id=8%3A32&t=xmv2E7uoP5QQefW3-1)
 
 ![Alt Text](./images/mgmt-main.PNG)
 
