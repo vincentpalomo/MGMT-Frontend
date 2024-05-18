@@ -10,7 +10,7 @@ interface DataType {
 }
 
 export default function Home() {
-  const [data, setData] = useState<DataType | null>(null);
+  const [data, setData] = useState(null);
   const [users, setUsers] = useState(null);
   const [user, setUser] = useState(null);
 
