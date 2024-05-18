@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { fetchData, fetchUsers } from '@/services/api';
+import { fetchData } from '@/services/api';
 
 interface DataType {
   message: string;
@@ -18,7 +18,7 @@ export default function Home() {
     const getData = async () => {
       try {
         const result = await fetchData('/');
-        const users = await fetchUsers('/users');
+        const users = await fetchData('/users');
         const user = await fetchData('/users/id/1');
 
         setData(result);
