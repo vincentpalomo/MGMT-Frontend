@@ -16,7 +16,7 @@ export default function Page() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
-  const [avatar, setAvatar] = useState('');
+  const [avatar, setAvatar] = useState('No Image');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<any | null>(null);
 
@@ -64,10 +64,6 @@ export default function Page() {
         <label>
           Email:
           <input className="text-black" type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
-        </label>
-        <label>
-          Avatar:
-          <input className="text-black" type="text" value={avatar} onChange={(e) => setAvatar(e.target.value)} />
         </label>
         <button type="submit" disabled={loading}>
           Create User

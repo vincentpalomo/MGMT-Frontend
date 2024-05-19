@@ -37,6 +37,7 @@ export default function Home() {
       <div className="space-x-5">
         <Link href="/register">Register</Link>
         <Link href={'/login'}>Login</Link>
+        <Link href={'/create-job'}>Track Job</Link>
       </div>
       <div>Fetch Data: ✌</div>
       {data ? (
