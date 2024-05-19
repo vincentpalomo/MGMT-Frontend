@@ -1,15 +1,15 @@
 import axios from 'axios';
 
-// const api_client = axios.create({
-//   baseURL: 'https://mgmt-ymsn.onrender.com/api',
-//   timeout: 1000,
-// });
+const api_client = axios.create({
+  baseURL: 'https://mgmt-ymsn.onrender.com/api',
+  timeout: 1000,
+});
 
 // local
-const api_client = axios.create({
-  baseURL: 'http://localhost:4000/api',
-  // timeout: 1000,
-});
+// const api_client = axios.create({
+//   baseURL: 'http://localhost:4000/api',
+//   // timeout: 1000,
+// });
 
 // multiple fetch data requests
 export const fetchData = async (endpoint: string) => {
