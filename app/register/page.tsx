@@ -42,6 +42,11 @@ export default function Page() {
 
   return (
     <>
+      <div className="space-x-5">
+        <Link href="/">home</Link>
+        <Link href="/login">login</Link>
+      </div>
+
       <form onSubmit={handleSubmit}>
         <label>
           Username:
@@ -69,7 +74,6 @@ export default function Page() {
         </button>
         {error && <p>{error}</p>}
       </form>
-      <Link href="/">home</Link>
     </>
   );
 }

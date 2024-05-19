@@ -34,7 +34,10 @@ export default function Home() {
 
   return (
     <>
-      <Link href="/register">Register</Link>
+      <div className="space-x-5">
+        <Link href="/register">Register</Link>
+        <Link href={'/login'}>Login</Link>
+      </div>
       <div>Fetch Data: ✌</div>
       {data ? (
         <pre>

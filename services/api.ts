@@ -26,7 +26,7 @@ export const fetchData = async (endpoint: string) => {
 //   }
 // };
 
-// create user
+// register user
 export const fetchCreateUser = async (
   endpoint: string,
   username: string,
@@ -45,6 +45,19 @@ export const fetchCreateUser = async (
     return newUser.data;
   } catch (error) {
     console.error('API fetch error for creating new user', error);
+    throw error;
+  }
+};
+
+// login user
+export const fetchLoginUser = async (endpoint: string, username: string, password: string) => {
+  try {
+    const userData = { username: username, password: password };
+    const loginUser = await api_client.post(endpoint, userData);
+
+    return loginUser.data;
+  } catch (error) {
+    console.error('API fetch error for login user', error);
     throw error;
   }
 };
