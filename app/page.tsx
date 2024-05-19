@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { fetchData } from '@/services/api';
+import Link from 'next/link';
 
 interface DataType {
   message: string;
@@ -33,6 +34,7 @@ export default function Home() {
 
   return (
     <>
+      <Link href="/register">Register</Link>
       <div>Fetch Data: ✌</div>
       {data ? (
         <pre>
