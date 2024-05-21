@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { fetchData } from '@/services/api';
 import Link from 'next/link';
+import NavBar from './Components/NavBar';
 
 interface DataType {
   message: string;
@@ -34,11 +35,13 @@ export default function Home() {
 
   return (
     <>
-      <div className="space-x-5">
+      {/* <div className="space-x-5">
         <Link href="/register">Register</Link>
         <Link href={'/login'}>Login</Link>
         <Link href={'/create-job'}>Track Job</Link>
-      </div>
+        <Link href={'/update-job'}>Update Job</Link>
+      </div> */}
+      <NavBar />
       <div>Fetch Data: ✌</div>
       {data ? (
         <pre>

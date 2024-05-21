@@ -1,7 +1,6 @@
 'use client';
 import { useState } from 'react';
 import { fetchCreateJob } from '@/services/api';
-import Link from 'next/link';
 import NavBar from '../Components/NavBar';
 
 export default function Page() {
@@ -24,7 +23,7 @@ export default function Page() {
     e.preventDefault();
     setLoading(true);
     try {
-      const newJob = await fetchCreateJob(
+      const updateJob = await fetchCreateJob(
         `/jobs/create/${user_id}`,
         title,
         companyName,
@@ -39,7 +38,7 @@ export default function Page() {
         notes,
         user_id
       ); // Replace 123 with the actual user ID
-      console.log('New Job:', newJob);
+      console.log('New Job:', updateJob);
       // Reset form fields
       setTitle('');
       setCompanyName('');

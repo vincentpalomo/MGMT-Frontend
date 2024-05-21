@@ -109,3 +109,44 @@ export const fetchCreateJob = async (
     throw error;
   }
 };
+
+// update job
+export const fetchUpdateJob = async (
+  endpoint: string,
+  user_id: string,
+  title: string,
+  company_name: string,
+  jobURL: string,
+  location: string,
+  date_applied: string,
+  application_status: string,
+  interview_date: string | null,
+  interview_type: string | null,
+  salary: string,
+  follow_up: string | [],
+  notes: string
+) => {
+  try {
+    let jobData = {
+      title: title,
+      company_name: company_name,
+      jobURL: jobURL,
+      location: location,
+      date_applied: date_applied,
+      application_status: application_status,
+      interview_date: interview_date,
+      interview_type: interview_type,
+      salary: salary,
+      follow_up: follow_up,
+      notes: notes,
+      user_id: user_id,
+    };
+
+    const editJob = await api_client.patch(endpoint, jobData);
+
+    return editJob.data;
+  } catch (error) {
+    console.error('API fetch error for update job', error);
+    throw error;
+  }
+};
