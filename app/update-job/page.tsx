@@ -21,7 +21,7 @@ export default function Page() {
   const [error, setError] = useState<any>(null);
 
   // helper function to reformat date
-  function formatDate(dateString) {
+  function formatDate(dateString: string) {
     const date = new Date(dateString);
     const year = date.getFullYear();
     const month = String(date.getMonth() + 1).padStart(2, '0');
