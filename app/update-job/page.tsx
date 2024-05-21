@@ -63,8 +63,6 @@ export default function Page() {
     getJob();
   }, [user_id, job_id]);
 
-  console.log(user_id, job_id);
-
   const handleSubmit = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
     setLoading(true);
@@ -85,7 +83,7 @@ export default function Page() {
         user_id,
         job_id
       ); // Replace 123 with the actual user ID
-      console.log('Update Job:', updateJob);
+      // console.log('Update Job:', updateJob);
       // Reset form fields
       setTitle('');
       setCompanyName('');

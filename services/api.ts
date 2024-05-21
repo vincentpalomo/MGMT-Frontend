@@ -144,8 +144,8 @@ export const fetchUpdateJob = async (
       job_id: job_id,
     };
 
-    console.log('API FETCH', jobData.job_id, endpoint);
-    console.log('job date', jobData.date_applied);
+    // console.log('API FETCH', jobData.job_id, endpoint);
+    // console.log('job date', jobData.date_applied);
 
     // const date = new Date(jobData.date_applied);
     // const year = date.getFullYear();
