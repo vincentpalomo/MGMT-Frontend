@@ -1,6 +1,6 @@
 'use client';
-import { useState } from 'react';
-import { fetchCreateJob } from '@/services/api';
+import { useEffect, useState } from 'react';
+import { fetchUpdateJob, fetchData } from '@/services/api';
 import NavBar from '../Components/NavBar';
 
 export default function Page() {
@@ -15,16 +15,62 @@ export default function Page() {
   const [salary, setSalary] = useState('');
   const [followUp, setFollowUp] = useState('');
   const [notes, setNotes] = useState('');
-  const [user_id, setUser_id] = useState(1);
+  const [user_id, setUser_id] = useState<any>(1);
+  const [job_id, setJob_id] = useState<any>(1);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<any>(null);
+
+  // helper function to reformat date
+  function formatDate(dateString) {
+    const date = new Date(dateString);
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
+    return `${year}-${month}-${day}`;
+  }
+
+  useEffect(() => {
+    const getJob = async () => {
+      try {
+        const jobData = await fetchData(`/jobs/user/${user_id}/post/${job_id}`);
+        if (jobData.length > 0) {
+          const job = jobData[0];
+          setTitle(job.title || '');
+          setCompanyName(job.company_name || '');
+          setJobURL(job.joburl || '');
+          setLocation(job.location || '');
+          setDateApplied(formatDate(job.date_applied) || '');
+          setApplicationStatus(job.application_status || '');
+          if (job.interview_type == null) {
+            setInterviewType('');
+          } else {
+            setInterviewType(job.interview_type || '');
+          }
+          if (job.interview_date == null) {
+            setInterviewDate('');
+          } else {
+            setInterviewDate(formatDate(job.interview_date) || '');
+          }
+
+          setSalary(job.salary || '');
+          setFollowUp(job.follow_up || '');
+          setNotes(job.notes || '');
+        }
+      } catch (error) {
+        console.log('Error fetching job by id', error);
+      }
+    };
+    getJob();
+  }, [user_id, job_id]);
+
+  console.log(user_id, job_id);
 
   const handleSubmit = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
     setLoading(true);
     try {
-      const updateJob = await fetchCreateJob(
-        `/jobs/create/${user_id}`,
+      const updateJob = await fetchUpdateJob(
+        `/jobs/update/${user_id}/${job_id}`,
         title,
         companyName,
         jobURL,
@@ -36,9 +82,10 @@ export default function Page() {
         salary,
         followUp,
         notes,
-        user_id
+        user_id,
+        job_id
       ); // Replace 123 with the actual user ID
-      console.log('New Job:', updateJob);
+      console.log('Update Job:', updateJob);
       // Reset form fields
       setTitle('');
       setCompanyName('');
@@ -129,11 +176,11 @@ export default function Page() {
         </label>
         <label>
           Notes:
-          <input className="text-black" type="text" value={notes} onChange={(e) => setNotes(e.target.value)} />
+          <textarea className="text-black" value={notes} onChange={(e) => setNotes(e.target.value)} />
         </label>
 
         <button type="submit" disabled={loading}>
-          Create Job
+          Update Job
         </button>
         {error && <p>{error}</p>}
       </form>

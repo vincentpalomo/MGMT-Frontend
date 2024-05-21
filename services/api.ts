@@ -1,15 +1,15 @@
 import axios from 'axios';
 
-const api_client = axios.create({
-  baseURL: 'https://mgmt-ymsn.onrender.com/api',
-  timeout: 1000,
-});
+// const api_client = axios.create({
+//   baseURL: 'https://mgmt-ymsn.onrender.com/api',
+//   timeout: 1000,
+// });
 
 // local
-// const api_client = axios.create({
-//   baseURL: 'http://localhost:4000/api',
-//   // timeout: 1000,
-// });
+const api_client = axios.create({
+  baseURL: 'http://localhost:4000/api',
+  // timeout: 1000,
+});
 
 // multiple fetch data requests
 export const fetchData = async (endpoint: string) => {
@@ -113,7 +113,6 @@ export const fetchCreateJob = async (
 // update job
 export const fetchUpdateJob = async (
   endpoint: string,
-  user_id: string,
   title: string,
   company_name: string,
   jobURL: string,
@@ -124,7 +123,9 @@ export const fetchUpdateJob = async (
   interview_type: string | null,
   salary: string,
   follow_up: string | [],
-  notes: string
+  notes: string,
+  user_id: string,
+  job_id: string
 ) => {
   try {
     let jobData = {
@@ -140,13 +141,40 @@ export const fetchUpdateJob = async (
       follow_up: follow_up,
       notes: notes,
       user_id: user_id,
+      job_id: job_id,
     };
 
+    console.log('API FETCH', jobData.job_id, endpoint);
+    console.log('job date', jobData.date_applied);
+
+    // const date = new Date(jobData.date_applied);
+    // const year = date.getFullYear();
+    // const month = String(date.getMonth() + 1).padStart(2, '0');
+    // const day = String(date.getDate()).padStart(2, '0');
+
+    // jobData.date_applied = `${year}-${month}-${day}`;
+
+    // console.log('job date update', jobData.date_applied);
+
     const editJob = await api_client.patch(endpoint, jobData);
+    console.log(editJob);
 
     return editJob.data;
   } catch (error) {
     console.error('API fetch error for update job', error);
+    throw error;
+  }
+};
+
+// fetchJobById
+export const fetchJobById = async (endpoint: string, username: string, post_id: string) => {
+  try {
+    const params = { username: username, post_id: post_id };
+    const job = await api_client.get(endpoint, { params: params });
+
+    return job.data;
+  } catch (error) {
+    console.log('API fetch error for getting job by id', error);
     throw error;
   }
 };
