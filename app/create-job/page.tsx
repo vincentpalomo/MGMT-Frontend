@@ -1,7 +1,6 @@
 'use client';
 import { useState } from 'react';
 import { fetchCreateJob } from '@/services/api';
-import Link from 'next/link';
 import NavBar from '../Components/NavBar';
 
 export default function Page() {
@@ -62,7 +61,7 @@ export default function Page() {
 
   return (
     <>
-      <NavBar />
+      <NavBar user={undefined} />
 
       <form className="flex flex-col gap-5" onSubmit={handleSubmit}>
         {/* Input fields for job details */}

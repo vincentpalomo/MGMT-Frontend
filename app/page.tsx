@@ -28,13 +28,7 @@ export default function Home() {
 
   return (
     <>
-      {/* <div className="space-x-5">
-        <Link href="/register">Register</Link>
-        <Link href={'/login'}>Login</Link>
-        <Link href={'/create-job'}>Track Job</Link>
-        <Link href={'/update-job'}>Update Job</Link>
-      </div> */}
-      <NavBar />
+      <NavBar user={user} />
       <div>Fetch Data: ✌</div>
       {data ? (
         <pre>

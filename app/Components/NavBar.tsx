@@ -1,9 +1,12 @@
 import React from 'react';
 import Link from 'next/link';
 
-type Props = {};
+type Props = {
+  user: any;
+};
 
-const NavBar = (props: Props) => {
+const NavBar = ({ user: user }: Props) => {
+  console.log(user);
   return (
     <>
       <div className="space-x-5">
