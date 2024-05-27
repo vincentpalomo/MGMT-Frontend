@@ -2,14 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { fetchData } from '@/services/api';
-import Link from 'next/link';
 import NavBar from './Components/NavBar';
-
-interface DataType {
-  message: string;
-  users: string;
-  jobs: string;
-}
 
 export default function Home() {
   const [data, setData] = useState(null);
