@@ -6,10 +6,11 @@ type Props = {
 };
 
 const NavBar = ({ user: user }: Props) => {
+  console.log(user);
   console.log(user?.id);
-  console.log(user?.jobs[0].id);
+  console.log(user?.jobs[1].id);
   const user_id = user?.id;
-  const post_id = user?.jobs[0].id;
+  const post_id = user?.jobs[1].id;
   return (
     <>
       <div className="flex justify-between">
