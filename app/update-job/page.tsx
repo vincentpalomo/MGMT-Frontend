@@ -3,7 +3,9 @@ import { useEffect, useState } from 'react';
 import { fetchUpdateJob, fetchData } from '@/services/api';
 import NavBar from '../Components/NavBar';
 
-export default function Page() {
+export default function Page({ searchParams }: { searchParams: any }) {
+  console.log(searchParams.user_id, searchParams.post_id);
+
   const [title, setTitle] = useState('');
   const [companyName, setCompanyName] = useState('');
   const [jobURL, setJobURL] = useState('');
@@ -15,8 +17,8 @@ export default function Page() {
   const [salary, setSalary] = useState('');
   const [followUp, setFollowUp] = useState('');
   const [notes, setNotes] = useState('');
-  const [user_id, setUser_id] = useState<any>(1);
-  const [job_id, setJob_id] = useState<any>(1);
+  const [user_id, setUser_id] = useState<any>(searchParams?.user_id);
+  const [job_id, setJob_id] = useState<any>(searchParams?.post_id);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<any>(null);
 

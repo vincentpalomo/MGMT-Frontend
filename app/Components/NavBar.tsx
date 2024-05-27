@@ -6,7 +6,10 @@ type Props = {
 };
 
 const NavBar = ({ user: user }: Props) => {
-  console.log(user);
+  console.log(user?.id);
+  console.log(user?.jobs[0].id);
+  const user_id = user?.id;
+  const post_id = user?.jobs[0].id;
   return (
     <>
       <div className="flex justify-between">
@@ -15,7 +18,14 @@ const NavBar = ({ user: user }: Props) => {
           <Link href="/register">Register</Link>
           <Link href={'/login'}>Login</Link>
           <Link href={'/create-job'}>Track Job</Link>
-          <Link href={'/update-job'}>Update Job</Link>
+          <Link
+            href={{
+              pathname: '/update-job',
+              query: { user_id: JSON.stringify(user_id), post_id: JSON.stringify(post_id) },
+            }}
+          >
+            Update Job
+          </Link>
         </div>
         {user && <div>Welcome, {user.username} 👋</div>}
       </div>
