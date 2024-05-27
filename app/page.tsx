@@ -3,7 +3,6 @@
 import { useEffect, useState } from 'react';
 import { fetchData } from '@/services/api';
 import NavBar from './Components/NavBar';
-import UpdateJob from './update-job/page';
 
 export default function Home() {
   const [data, setData] = useState(null);

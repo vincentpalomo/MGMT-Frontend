@@ -6,9 +6,6 @@ type Props = {
 };
 
 const NavBar = ({ user: user }: Props) => {
-  console.log(user);
-  console.log(user?.id);
-  console.log(user?.jobs[1].id);
   const user_id = user?.id;
   const post_id = user?.jobs[1].id;
   return (
@@ -22,7 +19,7 @@ const NavBar = ({ user: user }: Props) => {
           <Link
             href={{
               pathname: '/update-job',
-              query: { user_id: JSON.stringify(user_id), post_id: JSON.stringify(post_id) },
+              query: { user: JSON.stringify(user), user_id: JSON.stringify(user_id), post_id: JSON.stringify(post_id) },
             }}
           >
             Update Job

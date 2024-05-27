@@ -4,8 +4,6 @@ import { fetchUpdateJob, fetchData } from '@/services/api';
 import NavBar from '../Components/NavBar';
 
 export default function Page({ searchParams }: { searchParams: any }) {
-  console.log(searchParams.user_id, searchParams.post_id);
-
   const [title, setTitle] = useState('');
   const [companyName, setCompanyName] = useState('');
   const [jobURL, setJobURL] = useState('');
@@ -108,7 +106,7 @@ export default function Page({ searchParams }: { searchParams: any }) {
 
   return (
     <>
-      <NavBar user={undefined} />
+      <NavBar user={JSON.parse(searchParams.user)} />
 
       <form className="flex flex-col gap-5" onSubmit={handleSubmit}>
         {/* Input fields for job details */}
