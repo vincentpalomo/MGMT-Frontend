@@ -9,11 +9,15 @@ const NavBar = ({ user: user }: Props) => {
   console.log(user);
   return (
     <>
-      <div className="space-x-5">
-        <Link href="/register">Register</Link>
-        <Link href={'/login'}>Login</Link>
-        <Link href={'/create-job'}>Track Job</Link>
-        <Link href={'/update-job'}>Update Job</Link>
+      <div className="flex justify-between">
+        <div className="space-x-5">
+          <Link href={'/'}>Home</Link>
+          <Link href="/register">Register</Link>
+          <Link href={'/login'}>Login</Link>
+          <Link href={'/create-job'}>Track Job</Link>
+          <Link href={'/update-job'}>Update Job</Link>
+        </div>
+        {user && <div>Welcome, {user.username} 👋</div>}
       </div>
     </>
   );
