@@ -106,7 +106,7 @@ export default function Page() {
 
   return (
     <>
-      <NavBar />
+      <NavBar user={undefined} />
 
       <form className="flex flex-col gap-5" onSubmit={handleSubmit}>
         {/* Input fields for job details */}
