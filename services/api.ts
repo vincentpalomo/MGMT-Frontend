@@ -151,8 +151,6 @@ export const fetchUpdateJob = async (
 
     // jobData.date_applied = `${year}-${month}-${day}`;
 
-    // console.log('job date update', jobData.date_applied);
-
     const editJob = await api_client.patch(endpoint, jobData);
     console.log(editJob);
 
