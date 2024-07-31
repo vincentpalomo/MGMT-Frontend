@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { fetchData } from '@/services/api';
 import NavBar from './Components/NavBar';
+import Main from './Components/Main';
 
 export default function Home() {
   const [data, setData] = useState(null);
@@ -29,6 +30,7 @@ export default function Home() {
   return (
     <>
       <NavBar user={user} />
+      <Main />
       <div>Fetch Data: ✌</div>
       {data ? (
         <pre>
