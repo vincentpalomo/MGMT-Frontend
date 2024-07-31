@@ -31,19 +31,21 @@ export default function Home() {
     <>
       <NavBar user={user} />
       <Main />
-      <div>Fetch Data: ✌</div>
-      {data ? (
-        <pre>
-          <h1>server health:</h1>
-          <div>{JSON.stringify(data, null, 2)}</div>
-          <h1>all users:</h1>
-          <div>{JSON.stringify(users, null, 2)}</div>
-          <h1>user 1:</h1>
-          <div>{JSON.stringify(user, null, 2)}</div>
-        </pre>
-      ) : (
-        'Loading...'
-      )}
+      {/* <div>
+        <div>Fetch Data: ✌</div>
+        {data ? (
+          <pre>
+            <h1>server health:</h1>
+            <div>{JSON.stringify(data, null, 2)}</div>
+            <h1>all users:</h1>
+            <div>{JSON.stringify(users, null, 2)}</div>
+            <h1>user 1:</h1>
+            <div>{JSON.stringify(user, null, 2)}</div>
+          </pre>
+        ) : (
+          'Loading...'
+        )}
+      </div> */}
     </>
   );
 }

@@ -32,19 +32,19 @@ const Main = (props: Props) => {
         <span>Sign up today and take control of your job search journey!</span>
       </div>
       {/* footer */}
-      <div className="h-screen w-full border overflow-hidden sm:flex sm:flex-col">
+      <div className="h-screen w-full overflow-hidden sm:flex sm:flex-col sm:justify-between">
         {/* content */}
-        <div className="">
+        <div className="border flex items-center justify-between h-full">
           {/* paragraph */}
-          <div>
-            <p>
+          <div className="border h-[272px] w-[820px]">
+            <p className="text-[24px]">
               mgmt* An app to help users set and track their goals. Users can create new goals, set milestones, track
               progress, update goal details, and delete goals when achieved or no longer relevant.
             </p>
             <span>*short for “management”.</span>
           </div>
           {/* links */}
-          <div>
+          <div className="flex h-[272px] w-full border">
             {/* left */}
             <div>
               <span>navigation</span>
@@ -66,7 +66,7 @@ const Main = (props: Props) => {
           </div>
         </div>
         {/* mgmt title */}
-        <div className="uppercase 2xl:text-[600px] font-rso">mgmt</div>
+        <div className="uppercase 2xl:text-[600px] font-rso 2xl:leading-[416px]">mgmt</div>
       </div>
     </>
   );
