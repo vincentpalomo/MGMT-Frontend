@@ -1,8 +1,14 @@
 import axios from 'axios';
 
+// render
+// const api_client = axios.create({
+//   baseURL: 'https://mgmt-ymsn.onrender.com/api',
+//   // timeout: 1000,
+// });
+
+// coolify
 const api_client = axios.create({
-  baseURL: 'https://mgmt-ymsn.onrender.com/api',
-  // timeout: 1000,
+  baseURL: 'https://mgmt-db.lucidstudio.xyz/api',
 });
 
 // local
