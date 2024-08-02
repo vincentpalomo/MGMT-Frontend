@@ -8,7 +8,7 @@ import axios from 'axios';
 
 // coolify
 const api_client = axios.create({
-  baseURL: 'https://mgmt-db.lucidstudio.xyz/api',
+  baseURL: 'https://mgmt-db.vincentpalomo.dev/api',
 });
 
 // local
